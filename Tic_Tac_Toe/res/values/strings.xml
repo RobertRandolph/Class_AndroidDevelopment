@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TicTacToe_Connected</string>
+    <string name="server_start">Start Server</string>
+    <string name="client_start">Start Client</string>
+    <string name="bluetooth_help">Server: Select either X or O and start.\nClient: Select a paired device and start.\n</string>
+    <string name="bluetooth_notSupported">Bluetooth not supported.</string>
+    <string name="bluetooth_off">Bluetooth is off, please turn it on.</string>
+    <string name="bluetooth_devices">Paired Devices</string>
+    <string name="nearby_help">Server: Select either X or O and start.\nClient: Instructions Here</string>
+</resources>

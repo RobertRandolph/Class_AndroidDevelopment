@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navBluetooh"
+        android:icon="@android:drawable/stat_sys_data_bluetooth"
+        android:title="Bluetooth" />
+    <item
+        android:id="@+id/navNearBy"
+        android:icon="@drawable/ic_near_by_black_24dp"
+        android:title="NearBy" />
+</menu>

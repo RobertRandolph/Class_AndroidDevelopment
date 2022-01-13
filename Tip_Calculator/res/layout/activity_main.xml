@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/billAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:drawableLeft="@drawable/dollar_sign"
+        android:ems="10"
+        android:hint="0.00"
+        android:inputType="numberDecimal"
+        android:maxLines="1"
+        app:layout_constraintBottom_toBottomOf="@+id/billAmount_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/billAmount_label"
+        app:layout_constraintTop_toTopOf="@+id/billAmount_label" />
+
+    <TextView
+        android:id="@+id/billAmount_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Bill Amount:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tipPercent_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Tip Percent:"
+        app:layout_constraintStart_toStartOf="@+id/billAmount_label"
+        app:layout_constraintTop_toBottomOf="@+id/billAmount_label" />
+
+    <EditText
+        android:id="@+id/tipPercent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/percent_sign"
+        android:ems="10"
+        android:hint="0"
+        android:inputType="number"
+        android:maxLength="3"
+        app:layout_constraintBottom_toBottomOf="@+id/tipPercent_label"
+        app:layout_constraintEnd_toEndOf="@+id/billAmount"
+        app:layout_constraintStart_toStartOf="@+id/billAmount"
+        app:layout_constraintTop_toTopOf="@+id/tipPercent_label" />
+
+    <RadioGroup
+        android:id="@+id/roundingMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:checkedButton="@id/noRounding"
+        app:layout_constraintEnd_toEndOf="@+id/roundingMethod_label"
+        app:layout_constraintStart_toStartOf="@+id/roundingMethod_label"
+        app:layout_constraintTop_toBottomOf="@+id/roundingMethod_label">
+
+        <RadioButton
+            android:id="@+id/noRounding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Rounding" />
+
+        <RadioButton
+            android:id="@+id/roundTotalBill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Round Total Bill" />
+
+        <RadioButton
+            android:id="@+id/roundTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Round Tip" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/roundingMethod_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:text="Rounding Method"
+        app:layout_constraintStart_toStartOf="@+id/tipPercent_label"
+        app:layout_constraintTop_toBottomOf="@+id/tipPercent_label" />
+
+    <TextView
+        android:id="@+id/roundingType_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Rounding Type"
+        app:layout_constraintBottom_toBottomOf="@+id/roundingMethod_label"
+        app:layout_constraintEnd_toEndOf="@+id/tipPercent"
+        app:layout_constraintTop_toTopOf="@+id/roundingMethod_label" />
+
+    <RadioGroup
+        android:id="@+id/roundDollar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/roundNearest"
+        app:layout_constraintBottom_toBottomOf="@+id/roundingMethod"
+        app:layout_constraintEnd_toEndOf="@+id/roundingType_label"
+        app:layout_constraintStart_toStartOf="@+id/roundingType_label"
+        app:layout_constraintTop_toTopOf="@+id/roundingMethod">
+
+        <RadioButton
+            android:id="@+id/roundNearest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nearest Dollar" />
+
+        <RadioButton
+            android:id="@+id/roundUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Round Up" />
+
+        <RadioButton
+            android:id="@+id/roundDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Round Down" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tipAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="$0.00"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/tipAmount_label"
+        app:layout_constraintStart_toStartOf="@+id/tipAmount_label"
+        app:layout_constraintTop_toBottomOf="@+id/tipAmount_label" />
+
+    <TextView
+        android:id="@+id/totalBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tipAmount"
+        app:layout_constraintEnd_toEndOf="@+id/totalBill_label"
+        app:layout_constraintStart_toStartOf="@+id/totalBill_label"
+        app:layout_constraintTop_toTopOf="@+id/tipAmount" />
+
+    <TextView
+        android:id="@+id/tipAmount_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Tip Amount"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/totalBill_label"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roundingMethod" />
+
+    <TextView
+        android:id="@+id/quickTip_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Quick Tip"
+        app:layout_constraintBottom_toTopOf="@+id/fifteenPercent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/tenPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="10%"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fifteenPercent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/fifteenPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15%"
+        app:layout_constraintBottom_toBottomOf="@+id/tenPercent"
+        app:layout_constraintEnd_toStartOf="@+id/twentyPercent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tenPercent"
+        app:layout_constraintTop_toTopOf="@+id/tenPercent" />
+
+    <Button
+        android:id="@+id/twentyPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20%"
+        app:layout_constraintBottom_toBottomOf="@+id/fifteenPercent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fifteenPercent"
+        app:layout_constraintTop_toTopOf="@+id/fifteenPercent" />
+
+    <TextView
+        android:id="@+id/totalBill_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Bill"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tipAmount_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tipAmount_label"
+        app:layout_constraintTop_toTopOf="@+id/tipAmount_label" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

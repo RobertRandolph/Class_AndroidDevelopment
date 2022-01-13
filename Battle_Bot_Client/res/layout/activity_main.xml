@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.widget.ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_connection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/host_lb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Host:"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/host"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/host_lb"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/host_lb"
+                app:layout_constraintTop_toTopOf="@+id/host_lb" />
+
+            <TextView
+                android:id="@+id/port_lb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Port:"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/host_lb"
+                app:layout_constraintTop_toBottomOf="@+id/host_lb" />
+
+            <EditText
+                android:id="@+id/port"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:ems="10"
+                android:inputType="number"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/port_lb"
+                app:layout_constraintEnd_toEndOf="@+id/host"
+                app:layout_constraintStart_toStartOf="@+id/host"
+                app:layout_constraintTop_toTopOf="@+id/port_lb" />
+
+            <TextView
+                android:id="@+id/connection_status"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Status"
+                app:layout_constraintBottom_toBottomOf="@+id/connect"
+                app:layout_constraintEnd_toStartOf="@+id/connect"
+                app:layout_constraintStart_toStartOf="@+id/port_lb"
+                app:layout_constraintTop_toBottomOf="@+id/port" />
+
+            <Button
+                android:id="@+id/connect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Connect"
+                app:layout_constraintEnd_toEndOf="@+id/port"
+                app:layout_constraintTop_toBottomOf="@+id/port" />
+
+            <TextView
+                android:id="@+id/points_lb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Points Left: 5"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/armor_pts"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/connect" />
+
+            <TextView
+                android:id="@+id/armor_pts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Armor (HP): 1"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/points_lb"
+                app:layout_constraintEnd_toStartOf="@+id/power_pts"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/points_lb"
+                app:layout_constraintTop_toTopOf="@+id/points_lb" />
+
+            <TextView
+                android:id="@+id/power_pts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Power (DMG): 1"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/armor_pts"
+                app:layout_constraintEnd_toStartOf="@+id/scan_pts"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/armor_pts"
+                app:layout_constraintTop_toTopOf="@+id/armor_pts" />
+
+            <TextView
+                android:id="@+id/scan_pts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scan (Vison) 1"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/power_pts"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/power_pts"
+                app:layout_constraintTop_toTopOf="@+id/power_pts" />
+
+            <Button
+                android:id="@+id/armor_plus"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="16dp"
+                android:text="+"
+                app:layout_constraintEnd_toEndOf="@+id/armor_pts"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/armor_minus"
+                app:layout_constraintTop_toBottomOf="@+id/armor_pts" />
+
+            <Button
+                android:id="@+id/armor_minus"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:text="-"
+                app:layout_constraintBottom_toBottomOf="@+id/armor_plus"
+                app:layout_constraintEnd_toStartOf="@+id/armor_plus"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/armor_pts"
+                app:layout_constraintTop_toTopOf="@+id/armor_plus" />
+
+            <Button
+                android:id="@+id/power_plus"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="16dp"
+                android:text="+"
+                app:layout_constraintEnd_toEndOf="@+id/power_pts"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/power_minus"
+                app:layout_constraintTop_toBottomOf="@+id/power_pts" />
+
+            <Button
+                android:id="@+id/power_minus"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:text="-"
+                app:layout_constraintBottom_toBottomOf="@+id/power_plus"
+                app:layout_constraintEnd_toStartOf="@+id/power_plus"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/armor_plus"
+                app:layout_constraintStart_toStartOf="@+id/power_pts"
+                app:layout_constraintTop_toTopOf="@+id/power_plus" />
+
+            <Button
+                android:id="@+id/scan_plus"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="16dp"
+                android:text="+"
+                app:layout_constraintEnd_toEndOf="@+id/scan_pts"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/scan_minus"
+                app:layout_constraintTop_toBottomOf="@+id/scan_pts" />
+
+            <Button
+                android:id="@+id/scan_minus"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:text="-"
+                app:layout_constraintBottom_toBottomOf="@+id/scan_plus"
+                app:layout_constraintEnd_toStartOf="@+id/scan_plus"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/scan_pts"
+                app:layout_constraintTop_toTopOf="@+id/scan_plus" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_play"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <io.github.controlwear.virtual.joystick.android.JoystickView
+                android:id="@+id/play_joystick_move"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:JV_backgroundColor="#009688"
+                app:JV_borderColor="#003C33"
+                app:JV_borderWidth="10dp"
+                app:JV_buttonColor="#003C33"
+                app:JV_buttonSizeRatio="15%"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/play_joystick_fire"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/play_shotCount" />
+
+            <io.github.controlwear.virtual.joystick.android.JoystickView
+                android:id="@+id/play_joystick_fire"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:JV_backgroundColor="#009688"
+                app:JV_borderColor="#003C33"
+                app:JV_borderWidth="10dp"
+                app:JV_buttonColor="#003C33"
+                app:JV_buttonSizeRatio="15%"
+                app:layout_constraintBottom_toBottomOf="@+id/play_joystick_move"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/play_joystick_move"
+                app:layout_constraintTop_toTopOf="@+id/play_joystick_move" />
+
+            <TextView
+                android:id="@+id/play_hp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="HP: 1"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/play_moveCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Stamina: 0"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/play_hp"
+                app:layout_constraintTop_toBottomOf="@+id/play_hp" />
+
+            <TextView
+                android:id="@+id/play_shotCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Reload: 0"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/play_moveCount"
+                app:layout_constraintTop_toBottomOf="@+id/play_moveCount" />
+
+            <TextView
+                android:id="@+id/play_team_lb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Team:"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/play_hp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.robertrandolph.myclient.TeamColorsView
+                android:id="@+id/play_team_colors"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/play_team_lb"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/play_team_lb"
+                app:layout_constraintTop_toTopOf="@+id/play_team_lb"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/play_powerup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Power Up: Scan Needed"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/play_team_lb"
+                app:layout_constraintTop_toBottomOf="@+id/play_team_lb" />
+
+            <TextView
+                android:id="@+id/play_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Status"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/play_powerup"
+                app:layout_constraintTop_toBottomOf="@+id/play_powerup" />
+
+            <Button
+                android:id="@+id/play_shoot_powerup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Shoot Powerup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/play_joystick_move" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </android.widget.ViewFlipper>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
